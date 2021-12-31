@@ -9,14 +9,11 @@ const App = () => {
   return (
     <div className="app">
       <Switch>
-        <Route exact path="/login">
-          <Login />
-        </Route>
         <Route exact path="/signup">
           <SignUp />
         </Route>
         <Route exact path="/">
-          <Home />
+          <Login />
         </Route>
       </Switch>
     </div>
