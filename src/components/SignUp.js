@@ -17,6 +17,7 @@ const SignUp = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [emailValid, setEmailValid] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
@@ -56,9 +57,10 @@ const SignUp = () => {
         firstname,
         lastname,
         email,
+        username,
         password,
       };
-      fetch("/users", {
+      fetch("/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
@@ -122,6 +124,7 @@ const SignUp = () => {
                   onChange={(e) => setLastname(e.target.value)}
                 />
               </Grid>
+
               <Grid item xs={12}>
                 {emailValid ? (
                   <TextField
@@ -147,6 +150,18 @@ const SignUp = () => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 )}
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  autoComplete="username"
+                  id="username"
+                  label="Username"
+                  name="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
               </Grid>
               <Grid item xs={12}>
                 {passwordMatch ? (
